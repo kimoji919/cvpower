@@ -76,16 +76,8 @@ export default defineComponent({
       this.$router.push({ path: "/Register" });
     },
     Login() {
-      this.axios
-        .post("http://124.220.209.244:8004/login", this.formState)
-        .then((resp) => {
-          let data = resp.data;
-          if (data.success) {
-            this.formState = {};
-          }
-        });
       console.log("submit!", this.formState.account, this.formState.password);
-      this.$router.push({ path: "/Cards" });
+      this.$router.push({ path: "/Home" });
     },
   },
 });

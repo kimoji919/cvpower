@@ -5,10 +5,10 @@
         <img src="https://aliyuncdn.antdv.com/v2/assets/logo.1ef800a8.svg" alt="" />
       </div>
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
-        <a-menu-item key="1" @click="this.$router.push({path: '/Cards'})">证件管理</a-menu-item>
-        <a-menu-item key="2" @click="this.$router.push({path: '/Bills'})">票据管理</a-menu-item>
-        <a-menu-item key="3" @click="this.$router.push({path: '/Secrets'})">密码管理</a-menu-item>
-        <a-menu-item key="4" disabled>文档管理</a-menu-item>
+        <a-menu-item key="1"> <router-link :to="{name:'Cards'}"> 证件管理</router-link></a-menu-item>
+        <a-menu-item key="2" > <router-link :to="{name:'Bills'}">票据管理 </router-link></a-menu-item>
+        <a-menu-item key="3"> <router-link :to="{name:'Secrets'}">密码管理 </router-link> </a-menu-item>
+        <a-menu-item key="4"><router-link :to="{name:'Documents'}">文档管理</router-link></a-menu-item>
       </a-menu>
       <div class="auto-complete">
         <a-input-search v-model:value="value" placeholder="input search text"
@@ -60,11 +60,7 @@
       };
     },
     methods: {
-      toURL() {
-        this.$router.push({
-          path: '/card'
-        })
-      }
+
     }
   });
 </script>
@@ -79,7 +75,7 @@
 
   .header {
     display: flex;
-    height: 7vh;
+    height: 6vh;
   }
 
   .logo img {

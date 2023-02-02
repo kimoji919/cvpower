@@ -4,7 +4,8 @@ import Bills from "@/views/Bills/index.vue"
 import Secrets from "@/views/Secrets/index.vue"
 import Login from "@/views/Login.vue"
 import Home from "@/home/home.vue"
-import homeroutes from "@/home/route"
+import Documents from "@/views/Documents/index.vue"
+import Regist from "@/views/Register.vue"
 const routes: Array<RouteRecordRaw> =[
     {
         path:'/',
@@ -17,26 +18,38 @@ const routes: Array<RouteRecordRaw> =[
         component:()=>Login
     },
     {
+        path:"/Regist",
+        name:"Regist",
+        component:()=>Regist
+    },
+    {
         path:'/Home',
         name:'Home',
         component:()=>Home,
+        children:[
+            {
+                path: 'Cards',
+                name:'Cards',
+                component:()=>Cards
+            },
+            {
+                path:'Bills',
+                name:'Bills',
+                component:()=>Bills
+            },
+            {
+                path:'Secrets',
+                name:'Secrets',
+                component:()=>Secrets
+            },
+            {
+                path:'Documents',
+                name:'Documents',
+                component:()=>Documents
+            }
+        ],
+        redirect:{name:'Cards'}
     },
-    {
-        path: '/Cards',
-        name:'Cards',
-        component:()=>Cards
-    },
-    {
-        path:'/Bills',
-        name:'Bills',
-        component:()=>Bills
-    },
-    {
-        path:'/Secrets',
-        name:'Secrets',
-        component:()=>Secrets
-    }
-
 ]
 
 const router = createRouter({
