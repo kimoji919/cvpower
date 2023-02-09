@@ -1,21 +1,40 @@
 <template>
   <a-layout class="layout" style="min-height: 100vh;">
+
     <a-layout-header class="header">
       <div class="logo">
         <img src="https://aliyuncdn.antdv.com/v2/assets/logo.1ef800a8.svg" alt="" />
       </div>
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
-        <a-menu-item key="1"> <router-link :to="{name:'Cards'}"> 证件管理</router-link></a-menu-item>
-        <a-menu-item key="2" > <router-link :to="{name:'Bills'}">票据管理 </router-link></a-menu-item>
-        <a-menu-item key="3"> <router-link :to="{name:'Secrets'}">密码管理 </router-link> </a-menu-item>
-        <a-menu-item key="4"><router-link :to="{name:'Documents'}">文档管理</router-link></a-menu-item>
+      
+      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal">
+        <a-menu-item key="1">
+          <router-link :to="{name:'Cards'}">
+            <p> 证件管理 </p>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="2">
+          <router-link :to="{name:'Bills'}">
+            <p> 票据管理 </p>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="3">
+          <router-link :to="{name:'Secrets'}">
+            <p>密码管理 </p>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="4">
+          <router-link :to="{name:'Documents'}">
+            <p>文档管理</p>
+          </router-link>
+        </a-menu-item>
       </a-menu>
+      
       <div class="auto-complete">
-        <a-input-search v-model:value="value" placeholder="input search text"
-          :style="{ right:'70px',position:'absolute',top:'1.5vh',width:'200px'}" @search="onSearch" />
+        <a-input-search v-model:value="value" placeholder="input search text" @search="onSearch" />
       </div>
-      <a-avatar class="avatar" src="https://pic1.zhimg.com/v2-8406fff9800f71987a6c4644c3a1e70d_l.jpg?source=32738c0c"
-        style="position: absolute; right: 10px" />
+
+      <a-avatar class="avatar" src="https://pic1.zhimg.com/v2-8406fff9800f71987a6c4644c3a1e70d_l.jpg?source=32738c0c"/>
+
     </a-layout-header>
     <a-layout-content style="padding: 0 50px">
       <a-breadcrumb style="margin: 16px 0">
@@ -64,9 +83,12 @@
     }
   });
 </script>
-<style >
+<style scoped>
   * {
     box-sizing: border-box;
+  }
+  html{
+    font-size: 62.5%;
   }
 
   .layout {
@@ -74,28 +96,38 @@
   }
 
   .header {
+    position: relative;
     display: flex;
-    height: 6vh;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .logo {
+    height: 100%;
   }
 
   .logo img {
     position: relative;
-    height: 4vh;
+    height: 60%;
     left: -20px;
     margin-right: 10px;
   }
-
-  .a-auto-complete {
+  .a-menu{
+    height: 6%;
+  }
+  .auto-complete {
     position: absolute;
-    top: 1vh;
-    float: right;
-    right: 0px;
-    width: 250px;
-    height: 5vh;
+    right:5rem;
+    top:0.7rem;
+    width: 10%;
+    height: 5%;
   }
 
   .avatar {
-    top: 1.3vh;
+    position:absolute;
+    right: 0.5rem;
+    top:0.7rem;
+    width: 2.2rem;
   }
 
   .a-layout-content {
@@ -108,7 +140,9 @@
     position: fixed;
     height: 5vh;
   }
-
+  p{
+    font-size:0.97rem;
+  }
   .site-layout-content {
     min-height: 280px;
     padding: 24px;

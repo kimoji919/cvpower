@@ -17,10 +17,10 @@
     <a-row>
       <a-col :span="5"></a-col>
       <a-col :span="6" style="overflow:hidden">
-        <a-card hoverable>
+        <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
-              style="height:25vh;" />
+              style="width:25vw;height:15.8vw" />
           </template>
           <template #actions>
             <setting-outlined key="setting" @click="showDrawer" />
@@ -31,14 +31,30 @@
         <a-drawer title="Basic Drawer" placement="right" :closable="false" :visible="visible" :get-container="false"
           :style="{ position: 'absolute'}" @close="onClose">
           <detail name="abc" address="aaa" birth="aaa" nationality="aaa" :sex="12" :uid="1213213" ></detail>
-        </a-drawer>
+        </a-drawer> -->
+        <a-card hoverable >
+          <template #cover>
+            <div v-show="isActiveleft==0">
+              <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
+                style="height:15.8vw;width:25vw;" />
+            </div>
+            <div v-show="isActiveleft==1">
+              <id-card-front style="height:15.8vw;width:25vw"></id-card-front>
+            </div>
+          </template>
+          <template #actions>
+            <setting-outlined key="setting" @click="opendetail" />
+            <edit-outlined key="edit" />
+            <ellipsis-outlined key="ellipsis" />
+          </template>
+        </a-card>
       </a-col>
       <a-col :span="2"></a-col>
       <a-col :span="6" style="overflow:hidden">
-        <a-card hoverable>
+        <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/3C8C5B451BB4445697730217EC8648E3"
-              style="height:25vh;" />
+              style="width:25vw;height:15.8vw" />
           </template>
           <template #actions>
             <setting-outlined key="setting" @click="showDrawer" />
@@ -49,7 +65,23 @@
         <a-drawer title="Basic Drawer" placement="right" :closable="false" :visible="visible" :get-container="false"
           :style="{ position: 'absolute'}" @close="onClose">
           <p>Some contents...</p>
-        </a-drawer>
+        </a-drawer> -->
+        <a-card hoverable>
+          <template #cover>
+            <div v-show="isActiveright==0">
+              <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
+                style="height:15.8vw;width:25vw" />
+            </div>
+            <div v-show="isActiveright==1">
+              <id-card-back style="height:15.8vw;width:25vw"></id-card-back>
+            </div>
+          </template>
+          <template #actions>
+            <setting-outlined key="setting" @click="opendetail2" />
+            <edit-outlined key="edit" />
+            <ellipsis-outlined key="ellipsis" />
+          </template>
+        </a-card>
       </a-col>
       <a-col :span="5"></a-col>
     </a-row>
@@ -75,7 +107,7 @@
         <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
-              style="height:25vh" />
+              style="width:25vw;height:15.8vw" />
           </template>
           <template #actions>
             <setting-outlined key="setting" @click="showDrawer" />
@@ -104,6 +136,8 @@
     ref
   } from 'vue';
   import drawer from '@/components/drawer.vue'
+  import IdCardFront from '@/components/IdCardFront.vue'
+  import IdCardBack from '@/components/IdCardBack.vue'
   import detail from './detail.vue'
   export default defineComponent({
     props: ['CardNum', 'title'],
@@ -132,12 +166,36 @@
       EditOutlined,
       EllipsisOutlined,
       drawer,
-      detail
+      detail,
+      IdCardFront,
+      IdCardBack
     },
+    data() {
+      return {
+        isActiveleft: false,
+        isActiveright: false
+      }
+    },
+    methods: {
+      opendetail() {
+        if (this.isActiveleft == false) {
+          this.isActiveleft = true
+        } else {
+          this.isActiveleft = false
+        }
+      },
+      opendetail2() {
+        if (this.isActiveright == false) {
+          this.isActiveright = true
+        } else {
+          this.isActiveright = false
+        }
+      }
+    }
   });
 </script>
 <style scoped>
-  .detail{
+  .detail {
     margin-left: -100px;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <a-button @click="showDrawer" shape="circle" :size="size" style="width:60px;height:60px">
+  <a-button @click="showDrawer" shape="circle" :size="size" style="width:3rem;height:3rem">
     <template #icon>
-      <plus-circle-outlined :style="{color: '#08c',fontSize:'40px'}" />
+      <plus-circle-outlined :style="{color: '#08c',fontSize:'2rem'}" />
     </template>
   </a-button>
   <a-drawer
@@ -9,7 +9,7 @@
     width="40vw"
     class="custom-class"
     style="color: red"
-    title="Basic Drawer"
+    title="证件上传"
     placement="right"
     @after-visible-change="afterVisibleChange"
   >
@@ -22,7 +22,7 @@
     >
       <a-form-item
         name="select"
-        label="Select"
+        label="证件类别"
         has-feedback
         :rules="[{ required: true, message: 'Please select your country!' }]"
       >
@@ -36,12 +36,12 @@
       </a-form-item>
       <a-form-item
         name="group"
-        label="Group Name"
+        label="证件名称"
         :rules="[{ required: true, message: 'Please input group name!' }]"
       >
         <a-input v-model:value="formState.group" />
       </a-form-item>
-      <a-form-item label="Dragger">
+      <a-form-item label="图片上传">
         <a-form-item name="dragger" no-style>
           <a-upload-dragger
             v-model:fileList="formState.dragger"

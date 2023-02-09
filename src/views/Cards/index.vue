@@ -1,5 +1,4 @@
 <template>
-
   <div class="new">
     <newer></newer>
   </div>
@@ -105,10 +104,12 @@
     font-size: 30px;
     margin: 0%;
   }
-
+  html{
+    font-size: 62.5%;
+  }
   .new {
     position: fixed;
-    right: 100px;
+    right: 2rem;
     margin-top: 10px;
     z-index: 1;
   }
