@@ -46,14 +46,14 @@ export default {
 }
 .id-card-back * {
     position: absolute;
-    font-size:18px;
+    font-size:14px;
     font-family: 'FZHei-B01S';
     color: rgb(49, 45, 45);
 }
 .name {
     left:20%;
     top:11.2%;
-    font-size:20px;
+    font-size:14px;
 }
 .sex {
     left:20%;

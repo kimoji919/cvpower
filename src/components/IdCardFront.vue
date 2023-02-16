@@ -39,7 +39,7 @@ import { defineComponent } from "@vue/runtime-core"
 
     .id-card-front * {
         position: absolute;
-        font-size: 17px;
+        font-size: 14px;
         font-family: 'FZHei-B01S';
         color: rgb(49, 45, 45);
     }
