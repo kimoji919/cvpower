@@ -15,8 +15,8 @@
       <a-col :span="4"></a-col>
     </a-row>
     <a-row>
-      <a-col :span="5"></a-col>
-      <a-col :span="6" style="overflow:hidden">
+      <a-col :span="4"></a-col>
+      <a-col :span="7" style="overflow:hidden">
         <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
@@ -32,14 +32,13 @@
           :style="{ position: 'absolute'}" @close="onClose">
           <detail name="abc" address="aaa" birth="aaa" nationality="aaa" :sex="12" :uid="1213213" ></detail>
         </a-drawer> -->
-        <a-card hoverable>
+        <a-card class="left" hoverable>
           <template #cover>
             <div class="pic" v-show="isActiveleft==0">
-              <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
-                style="height:15.8vw;width:25vw;" />
+              <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463" id="card-img" />
             </div>
             <div v-show="isActiveleft==1">
-              <id-card-front style="height:15.8vw;width:25vw"></id-card-front>
+              <id-card-front style="height:17.89366053vw;width:29.16666667vw"></id-card-front>
             </div>
           </template>
           <template #actions>
@@ -50,7 +49,7 @@
         </a-card>
       </a-col>
       <a-col :span="2"></a-col>
-      <a-col :span="6" style="overflow:hidden">
+      <a-col :span="7" style="overflow:hidden">
         <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/3C8C5B451BB4445697730217EC8648E3"
@@ -66,14 +65,14 @@
           :style="{ position: 'absolute'}" @close="onClose">
           <p>Some contents...</p>
         </a-drawer> -->
-        <a-card hoverable>
+        <a-card class="right" hoverable>
           <template #cover>
             <div class="pic" v-show="isActiveright==0">
-              <img alt="example" src="https://img1.baidu.com/it/u=1305596244,1239303250&fm=253&fmt=auto&app=138&f=GIF?w=691&h=500"
-                style="height:15.8vw;width:25vw" />
+              <img alt="example" id="card-img"
+                src="https://img1.baidu.com/it/u=1305596244,1239303250&fm=253&fmt=auto&app=138&f=GIF?w=691&h=500" />
             </div>
             <div v-show="isActiveright==1">
-              <id-card-back style="height:15.8vw;width:25vw"></id-card-back>
+              <id-card-back style="height:17.89366053vw;width:29.16666667vw"></id-card-back>
             </div>
           </template>
           <template #actions>
@@ -83,7 +82,7 @@
           </template>
         </a-card>
       </a-col>
-      <a-col :span="5"></a-col>
+      <a-col :span="4"></a-col>
     </a-row>
   </div>
   <div v-else>
@@ -107,8 +106,8 @@
         <a-card hoverable>
           <template #cover>
             <div class="pic">
-              <img alt="example" src="https://pic3.zhimg.com/v2-fe127aac97845744e7b2124ffe16df6d_r.jpg"
-                style="width:25vw;height:15.8vw" />
+              <img id="card-img2" alt="example"
+                src="https://pic3.zhimg.com/v2-fe127aac97845744e7b2124ffe16df6d_r.jpg" />
             </div>
           </template>
           <template #actions>
@@ -198,5 +197,23 @@
 <style scoped>
   .detail {
     margin-left: -100px;
+  }
+
+  .left {
+    width: 29.16666667vw;
+  }
+
+  .right {
+    width: 29.16666667vw;
+  }
+
+  #card-img {
+    height: 17.89366053vw;
+    width: 29.16666667vw
+  }
+
+  #card-img2 {
+    height: 15.3vw;
+    width: 25vw
   }
 </style>
