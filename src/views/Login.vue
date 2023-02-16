@@ -43,7 +43,7 @@
           style="
             width: 30%;
             background: #ffffff;
-            left: 10%;
+
             float: left;
             color: #505458;
             border-color: #505458;
@@ -54,13 +54,7 @@
         <a-button
           type="primary"
           html-type="submit"
-          style="
-            width: 30%;
-            background: #505458;
-            border: none;
-            float: right;
-            right: 10%;
-          "
+          style="width: 30%; background: #505458; border: none; float: right"
           @click="login()"
           >登陆</a-button
         >
@@ -162,7 +156,7 @@ body {
   border-radius: 15px;
   background-clip: padding-box;
   margin: auto;
-  width: 60vh;
+  width: 50vh;
   margin-top: 18vh;
 }
 
