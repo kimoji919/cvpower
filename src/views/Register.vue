@@ -21,7 +21,11 @@
           { min: 2, message: '账号需要大于两个字符！' },
         ]"
       >
-        <a-input v-model:value="formState.account" placeholder="请输入账号">
+        <a-input
+          v-model:value="formState.account"
+          placeholder="请输入账号"
+          style="height: 35px"
+        >
         </a-input>
       </a-form-item>
 
@@ -31,6 +35,7 @@
           type="password"
           autocomplete="off"
           placeholder="请输入密码"
+          style="height: 35px"
         ></a-input>
       </a-form-item>
       <a-form-item has-feedback label="确认密码" name="checkPass">
@@ -39,10 +44,15 @@
           type="password"
           autocomplete="off"
           placeholder="请再次输入密码"
+          style="height: 35px"
         ></a-input>
       </a-form-item>
       <a-form-item label="姓名">
-        <a-input v-model:value="formState.name" type="textarea" />
+        <a-input
+          v-model:value="formState.name"
+          type="textarea"
+          style="height: 35px"
+        />
       </a-form-item>
       <!--
       <a-form-item label="昵称">
@@ -251,9 +261,9 @@ export default defineComponent({
 .register-container {
   border-radius: 15px;
   background-clip: padding-box;
-  margin: 50px auto;
   width: 70vh;
   height: 80vh;
+  margin: auto;
   margin-top: 18vh;
 }
 .register_title {

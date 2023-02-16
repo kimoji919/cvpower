@@ -15,7 +15,10 @@
         name="account"
         :rules="[{ required: true, message: '请输入你的账号!' }]"
       >
-        <a-input v-model:value="formState.account" placeholder="请输入账号"
+        <a-input
+          v-model:value="formState.account"
+          placeholder="请输入账号"
+          style="height: 35px"
           ><template #prefix
             ><UserOutlined style="color: rgba(0, 0, 0, 0.25)" /></template
         ></a-input>
@@ -28,6 +31,7 @@
         <a-input-password
           v-model:value="formState.password"
           placeholder="请输入密码"
+          style="height: 35px"
           ><template #prefix
             ><LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template
         ></a-input-password>
@@ -157,7 +161,7 @@ body {
 .login-container {
   border-radius: 15px;
   background-clip: padding-box;
-  margin: 50px auto;
+  margin: auto;
   width: 60vh;
   margin-top: 18vh;
 }
