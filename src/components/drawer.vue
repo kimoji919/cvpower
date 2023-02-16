@@ -1,5 +1,5 @@
 <template>
-  <a-button  @click="showDrawer" shape="round" :size="size">
+  <a-button @click="showDrawer" shape="round" :size="size">
     <template #icon>
       <comment-outlined />
     </template>
@@ -9,7 +9,7 @@
     width="40vw"
     class="custom-class"
     style="color: red"
-    title="Basic Drawer"
+    title="备注"
     placement="right"
     @after-visible-change="afterVisibleChange"
   >
@@ -18,18 +18,18 @@
 </template>
 
 <script lang="ts">
-import {CommentOutlined} from "@ant-design/icons-vue"
+import { CommentOutlined } from "@ant-design/icons-vue";
 import { defineComponent, ref } from "vue";
 
-import addcomment from '@/components/addcomment.vue' 
+import addcomment from "@/components/addcomment.vue";
 export default defineComponent({
   components: {
     CommentOutlined,
-    addcomment
+    addcomment,
   },
   setup() {
     const visible = ref<boolean>(false);
-    const afterVisibleChange = (bool:boolean) => {
+    const afterVisibleChange = (bool: boolean) => {
       console.log("visible", bool);
     };
     const showDrawer = () => {

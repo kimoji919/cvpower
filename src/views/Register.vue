@@ -106,9 +106,7 @@
 
 <script>
 import { defineComponent, reactive, ref } from "vue";
-import {
-    HttpManager
-  } from "@/api";
+import { HttpManager } from "@/api";
 export default defineComponent({
   setup() {
     const formRef = ref();
@@ -156,28 +154,28 @@ export default defineComponent({
         return Promise.resolve();
       }
     };
-     async function register() {
-        let params = new URLSearchParams();
-        params.append("account", formState.account);
-        params.append("password", formState.pass);
-        console.log(params)
-        await HttpManager.register(params).then(
-          (d) => {
-            console.log(d);
-            if (d.success) {
-              console.log("message: ", d.message);
-              message.success(d.message);
-              setTimeout(() => {
-              }, 500);
-            } else {
-              message.error(d.message);
-            }
-          }).catch(err => {
-          let response = err
-          console.log("err", err)
-          console.log("response", response)
+    async function register() {
+      let params = new URLSearchParams();
+      params.append("account", formState.account);
+      params.append("password", formState.pass);
+      console.log(params);
+      await HttpManager.register(params)
+        .then((d) => {
+          console.log(d);
+          if (d.success) {
+            console.log("message: ", d.message);
+            message.success(d.message);
+            setTimeout(() => {}, 500);
+          } else {
+            message.error(d.message);
+          }
         })
-      }
+        .catch((err) => {
+          let response = err;
+          console.log("err", err);
+          console.log("response", response);
+        });
+    }
     const rules = {
       pass: [
         {
@@ -228,7 +226,7 @@ export default defineComponent({
       handleFinish,
       resetForm,
       handleValidate,
-      register
+      register,
     };
   },
   methods: {
@@ -246,19 +244,17 @@ export default defineComponent({
   width: 100%;
   background-size: cover;
   position: fixed;
-  margin: 0px;
-  padding: 0px;
-  top: 5%;
+  background-size: 100%;
+  background-color: #f0f2f5;
+  background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
 }
 .register-container {
   border-radius: 15px;
   background-clip: padding-box;
   margin: 50px auto;
-  width: 650px;
-  background: #fff;
-  padding: 35px 35px 15px 35px;
-  border: 1px solid #eaeaea;
-  box-shadow: 0 0 25px #cac6c6;
+  width: 70vh;
+  height: 80vh;
+  margin-top: 18vh;
 }
 .register_title {
   margin: 0px auto 40px auto;

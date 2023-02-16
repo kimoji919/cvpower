@@ -35,9 +35,9 @@
           :loading="submitting"
           type="primary"
           @click="handleSubmit"
-          style="float:right;"
+          style="float: right"
         >
-          Add Comment
+          添加备注
         </a-button>
       </a-form-item>
     </template>
@@ -55,7 +55,7 @@ export default defineComponent({
   setup() {
     const comments = ref<Comment[]>([]);
     const submitting = ref<boolean>(false);
-    const value = ref<string>('');
+    const value = ref<string>("");
     const handleSubmit = () => {
       if (!value.value) {
         return;
@@ -67,14 +67,15 @@ export default defineComponent({
         submitting.value = false;
         comments.value = [
           {
-            author: 'Han Solo',
-            avatar: "https://pic1.zhimg.com/v2-8406fff9800f71987a6c4644c3a1e70d_l.jpg?source=32738c0c",
+            author: "Han Solo",
+            avatar:
+              "https://pic1.zhimg.com/v2-8406fff9800f71987a6c4644c3a1e70d_l.jpg?source=32738c0c",
             content: value.value,
             datetime: dayjs().fromNow(),
           },
           ...comments.value,
         ];
-        value.value = '';
+        value.value = "";
       }, 1000);
     };
 
@@ -89,9 +90,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-    .add{
-        width:37vw;
-        position: absolute;
-        bottom: 0%;
-    }
+.add {
+  width: 37vw;
+  position: absolute;
+  bottom: 0%;
+}
 </style>
