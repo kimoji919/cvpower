@@ -38,7 +38,7 @@
               <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463" id="card-img" />
             </div>
             <div v-show="isActiveleft==1">
-              <id-card-front style="height:17.89366053vw;width:29.16666667vw"></id-card-front>
+              <id-card-front></id-card-front>
             </div>
           </template>
           <template #actions>
@@ -72,7 +72,7 @@
                 src="https://img1.baidu.com/it/u=1305596244,1239303250&fm=253&fmt=auto&app=138&f=GIF?w=691&h=500" />
             </div>
             <div v-show="isActiveright==1">
-              <id-card-back style="height:17.89366053vw;width:29.16666667vw"></id-card-back>
+              <id-card-back></id-card-back>
             </div>
           </template>
           <template #actions>
@@ -215,5 +215,15 @@
   #card-img2 {
     height: 15.3vw;
     width: 25vw
+  }
+
+  .id-card-front {
+    height: 17.89366053vw;
+    width: 29.16666667vw
+  }
+
+  .id-card-back {
+    height: 17.89366053vw;
+    width: 29.16666667vw
   }
 </style>
