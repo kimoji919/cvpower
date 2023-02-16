@@ -3,12 +3,13 @@
     <newer></newer>
   </div>
   <!-- <div class="menu"> -->
-    <a-card title="目录" class="menu">
-      <!-- <a-anchor v-for="(item, index) in cards" :key="index">
+  <a-card title="目录" class="menu">
+    <!-- <a-anchor v-for="(item, index) in cards" :key="index">
         <a-anchor-link href="javascript:void(0)" @click="Jumpto(index)" :title="item.title" />
       </a-anchor> -->
-      <a v-for="(item, index) in cards" :key="index" href="javascript:void(0)" @click="Jumpto(index)" :title="item.title">{{item.title}}<br></a>
-    </a-card> 
+    <a v-for="(item, index) in cards" :key="index" href="javascript:void(0)" @click="Jumpto(index)"
+      :title="item.title">{{item.title}}<br></a>
+  </a-card>
   <!-- </div> -->
   <card v-for="(item,index) in cards" :CardNum="item.CardNum" :title="item.title" :id="index"></card>
   <div id="components-back-top-demo-custom">
@@ -16,6 +17,7 @@
       <div class="ant-back-top-inner">UP</div>
     </a-back-top>
   </div>
+  <div class="big-picture"></div>
 </template>
 <script lang="ts">
   import {
@@ -25,7 +27,8 @@
   } from "@ant-design/icons-vue";
   import {
     defineComponent,
-    ref
+    ref,
+    reactive
   } from "vue";
   import card from "./components/Card.vue";
   import newer from "./components/new.vue";
@@ -41,13 +44,36 @@
       EllipsisOutlined,
     },
     setup() {
-      const IDcard = ref([])
-      async function getData() {
-        IDcard.value = [];
-        const result = (await HttpManager.getCard()) as ResponseBody;
-        IDcard.value = result.data;
-        console.log(IDcard.value);
+       const formState = reactive({
+         type:"",
+         img:Image,
+    });
+      window.onload = () => {
+        let imgList = document.querySelectorAll('.pic img') as NodeListOf < HTMLElement > ;
+        let bigPicture = < HTMLElement > document.querySelector('.big-picture');
+        for (let i in imgList) {
+          imgList[i].onmouseenter = function () {
+            bigPicture.innerHTML = `<img src='${(this as HTMLImageElement).src}'style="width:50vw">`
+          }
+          imgList[i].onmouseleave = function () {
+            bigPicture.innerHTML = ``
+          }
+          let piclist=<HTMLElement> imgList[i].parentElement
+          piclist.onmousemove = function (e:any) {
+            let x = e.clientX;
+            let y = e.clientY;
+            bigPicture.style.top = y - 100 + "px";
+            bigPicture.style.left = x + 10 + "px";
+          }
+        }
       }
+      const IDcard = ref([])
+      // async function getData() {
+      //   IDcard.value = [];
+      //   const result = (await HttpManager.getCard()) as ResponseBody;
+      //   IDcard.value = result.data;
+      //   console.log(IDcard.value);
+      // }
       const Jumpto = (id: any) => {
         console.log(id)
         const dom = document.getElementById(id);
@@ -55,20 +81,12 @@
           behavior: 'smooth',
           block: 'start',
         })
-
       };
-      getData();
-      async function login() {
-        let params = new URLSearchParams();
-        params.append("account", "marlon1475");
-        params.append("password", "woshi2b");
-        return HttpManager.login(params);
-      }
-      login();
+
       return {
         Jumpto,
-        getData,
-        login
+        // getData,
+        // login
       }
     },
     data() {
@@ -104,9 +122,11 @@
     font-size: 30px;
     margin: 0%;
   }
-  html{
+
+  html {
     font-size: 62.5%;
   }
+
   .new {
     position: fixed;
     right: 2rem;
@@ -134,11 +154,13 @@
     margin-top: 30px;
     z-index: 1;
   }
-  .a-anchor{
+
+  .a-anchor {
     position: absolute;
-    display:inline-block;
+    display: inline-block;
     z-index: 10;
   }
+
   #components-back-top-demo-custom .ant-back-top {
     bottom: 100px;
   }
@@ -152,5 +174,10 @@
     color: #fff;
     text-align: center;
     font-size: 20px;
+  }
+
+  .big-picture {
+    position: fixed;
+    z-index: 11;
   }
 </style>

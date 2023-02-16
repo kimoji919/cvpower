@@ -7,15 +7,15 @@
       :title="item.title">{{item.title}}<br></a>
   </a-card>
   <a-row>
-    <a-col :span="6"></a-col>
-    <a-col :span="12">
+    <a-col :span="5"></a-col>
+    <a-col :span="14">
       <div v-for="(item, index) in cards" class="panel" :class="{active: isActive === index}"
         @click="changeClass(index)" :id="index">
         <!-- <card CardNum="1" :title="item.title" :id="index"></card> -->
         <Bills :title="item.title" :url="item.url"></Bills>
       </div>
     </a-col>
-    <a-col :span="6"></a-col>
+    <a-col :span="5"></a-col>
   </a-row>
   <div id="components-back-top-demo-custom">
     <a-back-top>

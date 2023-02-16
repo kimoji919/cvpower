@@ -32,9 +32,9 @@
           :style="{ position: 'absolute'}" @close="onClose">
           <detail name="abc" address="aaa" birth="aaa" nationality="aaa" :sex="12" :uid="1213213" ></detail>
         </a-drawer> -->
-        <a-card hoverable >
+        <a-card hoverable>
           <template #cover>
-            <div v-show="isActiveleft==0">
+            <div class="pic" v-show="isActiveleft==0">
               <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
                 style="height:15.8vw;width:25vw;" />
             </div>
@@ -68,8 +68,8 @@
         </a-drawer> -->
         <a-card hoverable>
           <template #cover>
-            <div v-show="isActiveright==0">
-              <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
+            <div class="pic" v-show="isActiveright==0">
+              <img alt="example" src="https://img1.baidu.com/it/u=1305596244,1239303250&fm=253&fmt=auto&app=138&f=GIF?w=691&h=500"
                 style="height:15.8vw;width:25vw" />
             </div>
             <div v-show="isActiveright==1">
@@ -106,8 +106,10 @@
       <a-col :span="6" style="overflow:hidden">
         <a-card hoverable>
           <template #cover>
-            <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
-              style="width:25vw;height:15.8vw" />
+            <div class="pic">
+              <img alt="example" src="https://pic3.zhimg.com/v2-fe127aac97845744e7b2124ffe16df6d_r.jpg"
+                style="width:25vw;height:15.8vw" />
+            </div>
           </template>
           <template #actions>
             <setting-outlined key="setting" @click="showDrawer" />
@@ -146,7 +148,6 @@
       const afterVisibleChange = (bool: boolean) => {
         console.log('visible', bool);
       };
-
       const showDrawer = () => {
         visible.value = true;
       };

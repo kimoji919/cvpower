@@ -73,7 +73,7 @@
           type="primary"
           html-type="submit"
           style="background: #505458; border: none; width: 30%"
-          @click="submitForm(ruleForm)"
+          @click="register()"
           >注册</a-button
         >
         <a-button
@@ -106,6 +106,9 @@
 
 <script>
 import { defineComponent, reactive, ref } from "vue";
+import {
+    HttpManager
+  } from "@/api";
 export default defineComponent({
   setup() {
     const formRef = ref();
@@ -153,6 +156,28 @@ export default defineComponent({
         return Promise.resolve();
       }
     };
+     async function register() {
+        let params = new URLSearchParams();
+        params.append("account", formState.account);
+        params.append("password", formState.pass);
+        console.log(params)
+        await HttpManager.register(params).then(
+          (d) => {
+            console.log(d);
+            if (d.success) {
+              console.log("message: ", d.message);
+              message.success(d.message);
+              setTimeout(() => {
+              }, 500);
+            } else {
+              message.error(d.message);
+            }
+          }).catch(err => {
+          let response = err
+          console.log("err", err)
+          console.log("response", response)
+        })
+      }
     const rules = {
       pass: [
         {
@@ -203,6 +228,7 @@ export default defineComponent({
       handleFinish,
       resetForm,
       handleValidate,
+      register
     };
   },
   methods: {
@@ -222,6 +248,7 @@ export default defineComponent({
   position: fixed;
   margin: 0px;
   padding: 0px;
+  top: 5%;
 }
 .register-container {
   border-radius: 15px;
@@ -237,5 +264,7 @@ export default defineComponent({
   margin: 0px auto 40px auto;
   text-align: center;
   color: #505458;
+  font-size: 22px;
+  font-weight: 500;
 }
 </style>

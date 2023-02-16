@@ -10,7 +10,9 @@ const HttpManager = {
   //获取商品分类
   getClassify: () => get(`classify`),
   //获取对应商品列表
-  login:(data={})=>post('login')
+  login:(params:any)=>post(`login`,params),
+  register:(params:any)=>post(`register`,params),
+  newCard:(params:any,uid:Number)=>post(`card/${uid}`,params)
 }
 
 export { HttpManager }

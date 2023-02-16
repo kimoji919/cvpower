@@ -5,7 +5,8 @@ import Secrets from "@/views/Secrets/index.vue"
 import Login from "@/views/Login.vue"
 import Home from "@/home/home.vue"
 import Documents from "@/views/Documents/index.vue"
-import Regist from "@/views/Register.vue"
+import Register from "@/views/Register.vue"
+import test from "@/views/test.vue"
 const routes: Array<RouteRecordRaw> =[
     {
         path:'/',
@@ -18,9 +19,13 @@ const routes: Array<RouteRecordRaw> =[
         component:()=>Login
     },
     {
-        path:"/Regist",
-        name:"Regist",
-        component:()=>Regist
+        path:"/Test",
+        component:()=>test
+    },
+    {
+        path:"/Register",
+        name:"Register",
+        component:()=>Register
     },
     {
         path:'/Home',
