@@ -18,7 +18,7 @@
             </a-collapse>
         </a-col>
         <a-col :span="7" style="display: flex;position:fixed; right:0px">
-            <a-divider type="vertical" style="height:80vh;margin:40px" />
+            <a-divider type="vertical" style="height:120vh;margin:40px" />
             <div v-show="detail">
                 <detail @detail="closedetail"></detail>
             </div>

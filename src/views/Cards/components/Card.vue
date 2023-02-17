@@ -15,8 +15,8 @@
       <a-col :span="4"></a-col>
     </a-row>
     <a-row>
-      <a-col :span="4"></a-col>
-      <a-col :span="7" style="overflow:hidden">
+      <a-col :span="5"></a-col>
+      <a-col :span="6" style="overflow:hidden">
         <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/9C1B97A36FD34DA9990BA30010724463"
@@ -42,14 +42,14 @@
             </div>
           </template>
           <template #actions>
-            <setting-outlined key="setting" @click="opendetail" />
-            <edit-outlined key="edit" />
+            <zoom-in-outlined key="setting" @click="opendetail" />
+            <download-outlined key="download" />
             <ellipsis-outlined key="ellipsis" />
           </template>
         </a-card>
       </a-col>
       <a-col :span="2"></a-col>
-      <a-col :span="7" style="overflow:hidden">
+      <a-col :span="6" style="overflow:hidden">
         <!-- <a-card hoverable>
           <template #cover>
             <img alt="example" src="https://ai.bdstatic.com/file/3C8C5B451BB4445697730217EC8648E3"
@@ -68,21 +68,20 @@
         <a-card class="right" hoverable>
           <template #cover>
             <div class="pic" v-show="isActiveright==0">
-              <img alt="example" id="card-img"
-                src="https://img1.baidu.com/it/u=1305596244,1239303250&fm=253&fmt=auto&app=138&f=GIF?w=691&h=500" />
+              <img alt="example" id="card-img" src="https://ai.bdstatic.com/file/3C8C5B451BB4445697730217EC8648E3" />
             </div>
             <div v-show="isActiveright==1">
               <id-card-back></id-card-back>
             </div>
           </template>
           <template #actions>
-            <setting-outlined key="setting" @click="opendetail2" />
-            <edit-outlined key="edit" />
+            <zoom-in-outlined key="setting" @click="opendetail2" />
+            <download-outlined key="download" />
             <ellipsis-outlined key="ellipsis" />
           </template>
         </a-card>
       </a-col>
-      <a-col :span="4"></a-col>
+      <a-col :span="5"></a-col>
     </a-row>
   </div>
   <div v-else>
@@ -106,13 +105,12 @@
         <a-card hoverable>
           <template #cover>
             <div class="pic">
-              <img id="card-img2" alt="example"
-                src="https://pic3.zhimg.com/v2-fe127aac97845744e7b2124ffe16df6d_r.jpg" />
+              <img id="card-img2" alt="example" src="https://ai.bdstatic.com/file/84FF99D8DC5C4E7DB8787D2A0540CB3B" />
             </div>
           </template>
           <template #actions>
-            <setting-outlined key="setting" @click="showDrawer" />
-            <edit-outlined key="edit" />
+            <zoom-in-outlined key="setting" @click="showDrawer" />
+            <download-outlined key="download" />
             <ellipsis-outlined key="ellipsis" />
           </template>
         </a-card>
@@ -128,8 +126,8 @@
 </template>
 <script lang="ts">
   import {
-    SettingOutlined,
-    EditOutlined,
+    ZoomInOutlined,
+    DownloadOutlined,
     EllipsisOutlined
   } from '@ant-design/icons-vue';
   import {
@@ -162,8 +160,8 @@
       }
     },
     components: {
-      SettingOutlined,
-      EditOutlined,
+      ZoomInOutlined,
+      DownloadOutlined,
       EllipsisOutlined,
       drawer,
       detail,
@@ -199,31 +197,23 @@
     margin-left: -100px;
   }
 
-  .left {
-    width: 29.16666667vw;
-  }
-
-  .right {
-    width: 29.16666667vw;
-  }
-
   #card-img {
-    height: 17.89366053vw;
-    width: 29.16666667vw
+    height: 15.3vw;
+    width: 25vw;
   }
 
   #card-img2 {
     height: 15.3vw;
-    width: 25vw
+    width: 25vw;
   }
 
   .id-card-front {
-    height: 17.89366053vw;
-    width: 29.16666667vw
+    height: 15.3vw;
+    width: 25vw;
   }
 
   .id-card-back {
-    height: 17.89366053vw;
-    width: 29.16666667vw
+    height: 15.3vw;
+    width: 25vw;
   }
 </style>

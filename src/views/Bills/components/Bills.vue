@@ -18,11 +18,11 @@
         <a-col :span="18" style="overflow:hidden">
             <a-card hoverable>
                 <template #cover>
-                    <img alt="example" :src="url"  style="height:45vh"/>
+                    <img alt="example" :src="url" style="height:45vh" />
                 </template>
                 <template #actions>
-                    <setting-outlined key="setting" @click="showDrawer" />
-                    <edit-outlined key="edit" />
+                    <zoom-in-outlined key="setting" @click="showDrawer" />
+                    <download-outlined key="edit" />
                     <ellipsis-outlined key="ellipsis" />
                 </template>
             </a-card>
@@ -36,8 +36,8 @@
 </template>
 <script lang="ts">
     import {
-        SettingOutlined,
-        EditOutlined,
+        ZoomInOutlined,
+        DownloadOutlined,
         EllipsisOutlined
     } from '@ant-design/icons-vue';
     import {
@@ -47,7 +47,7 @@
     import drawer from '@/components/drawer.vue'
     import detail from '@/views/Cards/components/detail.vue'
     export default defineComponent({
-        props: [ 'title','url'],
+        props: ['title', 'url'],
         setup() {
             const visible = ref(false);
             const afterVisibleChange = (bool: boolean) => {
@@ -69,8 +69,8 @@
             }
         },
         components: {
-            SettingOutlined,
-            EditOutlined,
+            ZoomInOutlined,
+            DownloadOutlined,
             EllipsisOutlined,
             drawer,
             detail

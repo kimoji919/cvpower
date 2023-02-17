@@ -24,7 +24,7 @@ import { defineComponent } from "@vue/runtime-core"
 <style scoped>
     .main-box {
         width: 500px;
-        height:306.7484663px;
+        height: 315px;
     }
 
     .id-card-front {
